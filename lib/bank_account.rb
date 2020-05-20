@@ -24,4 +24,8 @@ class BankAccount
       false
     end
   end
+
+  def close_account
+    @Sstatus = closed
+  end
 end
