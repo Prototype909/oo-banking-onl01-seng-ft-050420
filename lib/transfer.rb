@@ -26,10 +26,11 @@ class Transfer
       return "Transaction rejected. Please check your account balance."
     end
   end
-
-  if @status == "complete"
-      @sender.deposit( @amount )
-      @receiver.deposit( @amount * -1)
+  def reverse_transfer
+    if @status == "complete"
+      @sender.balance += @amount
+      @receiver.balance -= @amount
       @status = "reversed"
     end
+  end
 end
